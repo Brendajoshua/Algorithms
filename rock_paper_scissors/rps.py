@@ -3,7 +3,19 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+    plays = []
+    rps = [['rock'], ['paper'], ['scissors']]
+
+    if n == 0:
+      return [plays]
+    if n == 1:
+      return rps
+
+    for sublist in rock_paper_scissors(n - 1):
+      for play in rps:
+        plays.append(sublist + play)
+
+    return plays 
 
 
 if __name__ == "__main__":
